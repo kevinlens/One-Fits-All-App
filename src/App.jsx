@@ -1,12 +1,18 @@
-import React from 'react'
-
+import React from 'react';
+import FetchingData from './components/FetchingData';
 const App = () => {
   return (
     <div className='bg-slate-500 h-screen'>
-      <h1 className='text-2xl text-center pt-16 font-medium'>Experiment with Anything here!</h1>
+      <h1 className='text-2xl text-center pt-16 font-medium'>
+        Experiment with Anything here!
+      </h1>
       
-    </div>
-  )
-}
+      <div className='flex justify-center mt-12'>
+        <FetchingData />
+      </div>
 
-export default App
+    </div>
+  );
+};
+
+export default App;
