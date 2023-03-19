@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
 //RTK QUERY
-import { useFetchTopRatedTVShowsQuery } from '../store/reduxStore/fetchApi';
+import { useFetchTopRatedTVShowsQuery, useFetchMovieDetailsQuery } from '../store/reduxStore/fetchApi';
 
 const FetchingData = () => {
 
-  const { data: movieDetails } = useFetchTopRatedTVShowsQuery('800');
-
+  const { data: movieDetails } = useFetchTopRatedTVShowsQuery();
+  const { data: movieDetails2 } = useFetchMovieDetailsQuery('943822');
+  
   useEffect(()=>{
 
-    if(movieDetails){
+    if(movieDetails, movieDetails2){
       console.log('🍑🍑🍑🍑', movieDetails)
+      console.log('🍑🍑🍑🍑', movieDetails2)
     }
 
-  }, [movieDetails])
+  }, [movieDetails, movieDetails2])
 
   return <div>FetchingData</div>;
 };
