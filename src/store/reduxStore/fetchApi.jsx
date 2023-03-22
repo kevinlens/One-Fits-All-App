@@ -13,14 +13,9 @@ export const fetchApi = createApi({
     //     `fetch-movies?startingParams=${'tv/top_rated'}&categoryParams=${''}&id${''}&page=${'1'}&searchQuery=${''}&others${''}`,
     // }),
 
-    fetchTopRatedTVShows: builder.query({
-      query: (id) => `fetch-movies?startingParams=${'tv/top_rated'}`,
-      // `tv/top_rated?api_key=8e6ba047d3bc0b9dddf8392f32410006&language=en-US&page=1`,
-    }),
-    fetchMovieDetails: builder.query({
-      query: (id) =>
-        `fetch-movies?startingParams=${'movie'}&id=${id}&categoryParams=${'reviews'}`
-        // `movie/${movieId}/reviews?api_key=8e6ba047d3bc0b9dddf8392f32410006&language=en-US&page=1`,
+    fetchPopularMoviesForYear2022: builder.query({
+      query: () =>
+        `fetch-movies?startingParams=${'movie/popular'}&gte=${'2022-01-01'}&lte${'2022-12-31'}&page=${'1'}`
     }),
 
     // //! FOR FETCHING TV SHOWS DETAILS
@@ -36,8 +31,7 @@ export const fetchApi = createApi({
   }),
 });
 export const {
-  useFetchTopRatedTVShowsQuery,
-  useFetchMovieDetailsQuery
+  useFetchPopularMoviesForYear2022Query
   // useFetchTVShowDetailsQuery,
 
   // useFetchTVShowReviewsQuery,
